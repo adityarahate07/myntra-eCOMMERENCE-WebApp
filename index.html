@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myntra Clone — Fashion, Lifestyle & Gear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Offer Strip -->
+  <div class="top-promo-strip">
+    <div class="container promo-content">
+      <span>🎉 <strong>MYNTRA FESTIVAL:</strong> Flat ₹400 OFF on first order | Code: <strong>FIRST400</strong></span>
+      <span class="promo-badge">Free Delivery on ₹500+</span>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" aria-label="Myntra Home">
+        <svg class="myntra-symbol" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 32V8L20 22L30 8V32" stroke="url(#m-gradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 32V18L35 32" stroke="url(#m-gradient2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="m-gradient" x1="10" y1="8" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF3F6C"/>
+              <stop offset="1" stop-color="#FF905A"/>
+            </linearGradient>
+            <linearGradient id="m-gradient2" x1="25" y1="18" x2="35" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF905A"/>
+              <stop offset="1" stop-color="#F13AB1"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">myntra</span>
+      </a>
+
+      <!-- Navigation Categories -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <button type="button" class="nav-link active" data-nav-cat="All">All Items</button>
+        <button type="button" class="nav-link" data-nav-cat="Apparel">Men</button>
+        <button type="button" class="nav-link" data-nav-cat="Footwear">Footwear</button>
+        <button type="button" class="nav-link" data-nav-cat="Accessories">Accessories</button>
+        <button type="button" class="nav-link" data-nav-cat="Electronics">Gadgets</button>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="search" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search for products, brands and more..." 
+          aria-label="Search catalogue">
+      </div>
+
+      <!-- Action Items -->
+      <div class="header-actions">
+        <div class="action-item" title="Profile">
+          <span class="action-icon">👤</span>
+          <span class="action-label">Profile</span>
+        </div>
+        <div class="action-item" id="wishlistAction" title="Wishlist">
+          <span class="action-icon">♡</span>
+          <span class="action-label">Wishlist</span>
+          <span class="wishlist-badge" id="wishlistCount">0</span>
+        </div>
+        <a href="#ordersSection" class="action-item" id="navOrdersLink" title="My Orders">
+          <span class="action-icon">📦</span>
+          <span class="action-label">Orders</span>
+          <span class="wishlist-badge" id="navOrdersBadge">0</span>
+        </a>
+        <a href="#cart-panel" class="action-item bag-action" id="bagAction" title="Shopping Bag">
+          <span class="action-icon">🛍️</span>
+          <span class="action-label">Bag</span>
+          <span class="cart-badge" id="navCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter & Sorting Sub-Bar -->
+  <div class="sub-bar">
+    <div class="container sub-bar-inner">
+      <div class="category-pills" id="categoryFilters" role="toolbar" aria-label="Category Filters">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="filter-controls">
+        <label for="sortSelect" class="sort-label">Sort by:</label>
+        <select id="sortSelect" class="sort-select">
+          <option value="recommended">Recommended</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Customer Rating</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <main class="container main-layout">
+    <!-- Product Catalogue -->
+    <section class="catalogue-section">
+      <div class="catalogue-header">
+        <h2 class="catalogue-title">Curated Trending Collection</h2>
+        <span class="item-count-text" id="itemsCountDisplay">Showing 10 items</span>
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite">
+        <!-- Dynamic Cards via script.js -->
+      </div>
+    </section>
+
+    <!-- Shopping Bag Section -->
+    <aside class="cart-panel" id="cart-panel" aria-label="Shopping Bag">
+      <div class="cart-box">
+        <!-- Pincode Delivery Estimate Box -->
+        <div class="delivery-pincode-card">
+          <div class="pincode-header">
+            <span>Deliver to: <strong>400001 (Mumbai)</strong></span>
+            <button type="button" class="btn-check-pin">CHANGE</button>
+          </div>
+          <p class="delivery-time-text">⚡ Express Delivery by tomorrow with Myntra Speed</p>
+        </div>
+
+        <div class="cart-box-header">
+          <h2 class="cart-box-title">Shopping Bag</h2>
+          <span class="cart-items-counter" id="cartTotalItems">0 Items</span>
+        </div>
+
+        <!-- Empty Bag View -->
+        <div class="empty-cart" id="emptyCart">
+          <div class="empty-icon-wrap">
+            <span class="empty-art">🛍️</span>
+          </div>
+          <h3 class="empty-title">Hey, your bag is empty!</h3>
+          <p class="empty-sub">Explore our curated collection and add items to your shopping bag.</p>
+        </div>
+
+        <!-- Populated Bag View -->
+        <div class="cart-active-content" id="cartContent" hidden>
+          <!-- Free Delivery Progress Meter -->
+          <div class="delivery-meter-box" id="deliveryNotice">
+            <!-- Injected via script.js -->
+          </div>
+
+          <!-- Bag Table / List -->
+          <div class="cart-table-wrapper">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th scope="col">Product Details</th>
+                  <th scope="col" class="text-right">Price</th>
+                  <th scope="col" class="text-center">Qty</th>
+                  <th scope="col" class="text-right">Subtotal</th>
+                  <th scope="col" class="text-center"><span class="sr-only">Remove</span></th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Coupons Box -->
+          <div class="coupon-box">
+            <span class="coupon-icon">🏷️</span>
+            <div class="coupon-text">
+              <strong>FIRST400 Applied</strong>
+              <p>Extra savings applied automatically at checkout</p>
+            </div>
+            <span class="coupon-tag">APPLIED</span>
+          </div>
+
+          <!-- Price Details Breakdown -->
+          <div class="price-breakdown">
+            <h4 class="breakdown-title">PRICE DETAILS</h4>
+            <div class="breakdown-row">
+              <span>Total MRP</span>
+              <span id="mrpTotalAmount">₹0</span>
+            </div>
+            <div class="breakdown-row discount-row">
+              <span>Discount on MRP</span>
+              <span id="mrpDiscountAmount">-₹0</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Bag Subtotal</span>
+              <span id="subtotalAmount">₹0</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Convenience / Delivery Fee</span>
+              <span id="deliveryAmount">₹0</span>
+            </div>
+            <div class="breakdown-row grand-total-row">
+              <span>Total Amount</span>
+              <span id="grandTotalAmount">₹0</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-checkout" id="openCheckoutBtn">
+            PLACE ORDER <span>➔</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- My Orders Section (Active Orders on Home Page) -->
+  <section class="container orders-home-section" id="ordersSection" aria-label="My Orders History">
+    <div class="orders-section-header">
+      <div>
+        <h2 class="section-title">📦 My Orders</h2>
+        <p class="section-subtitle">Real-time status of your confirmed demo orders</p>
+      </div>
+      <a href="orders.html" class="view-all-orders-link">Open Dedicated Orders Page ➔</a>
+    </div>
+
+    <!-- Empty Orders View -->
+    <div class="empty-home-orders" id="emptyHomeOrders">
+      <p>No orders placed yet. Choose workspace gear above and click <strong>PLACE ORDER</strong> to test!</p>
+    </div>
+
+    <!-- Active Orders Feed -->
+    <div class="home-orders-feed" id="homeOrdersFeed">
+      <!-- Injected via script.js -->
+    </div>
+  </section>
+
+  <!-- Myntra Style Native Checkout Dialog -->
+  <dialog class="checkout-modal" id="checkoutDialog" aria-labelledby="modalHeading">
+    <div class="modal-box">
+      <!-- Checkout Stepper Bar -->
+      <div class="stepper-bar">
+        <div class="step completed">1. BAG</div>
+        <div class="step-divider"></div>
+        <div class="step completed">2. ADDRESS</div>
+        <div class="step-divider"></div>
+        <div class="step active">3. PAYMENT PREVIEW</div>
+      </div>
+
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="modalHeading">Order Summary</h3>
+          <p class="modal-sub">Delivering to: Aditya Rahate, Mumbai 400001</p>
+        </div>
+        <button type="button" class="btn-modal-close" id="closeDialogBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <!-- Demo Disclaimer Alert -->
+      <div class="demo-alert-banner" role="alert">
+        <div class="demo-badge">DEMO MODE</div>
+        <div class="demo-text">
+          <strong>Demo Checkout Preview — No real payment is processed.</strong>
+          <p>No card details or OTP needed. Your order will be placed instantly in demo mode.</p>
+        </div>
+      </div>
+
+      <!-- Itemized Preview Body -->
+      <div class="modal-body">
+        <h4 class="modal-section-title">ITEMS IN THIS ORDER</h4>
+        <div class="dialog-items-list" id="dialogOrderList">
+          <!-- Injected via script.js -->
+        </div>
+
+        <div class="modal-bill">
+          <div class="breakdown-row">
+            <span>Items Subtotal</span>
+            <span id="modalSubtotal">₹0</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Delivery Charges</span>
+            <span id="modalDelivery">₹0</span>
+          </div>
+          <div class="breakdown-row modal-total-row">
+            <span>Final Payable Amount</span>
+            <span id="modalGrandTotal">₹0</span>
+          </div>
+        </div>
+
+        <div class="savings-pill">
+          🎉 You are saving on original MRP with festive Myntra pricing!
+        </div>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" id="cancelCheckoutBtn">EDIT BAG</button>
+        <button type="button" class="btn-confirm-order" id="confirmOrderBtn">CONFIRM DEMO ORDER</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div class="toast-shelf" id="toastShelf" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="guarantee-grid">
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🛡️</span>
+          <div>
+            <strong>100% ORIGINAL</strong>
+            <p>Guarantee on all products</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🔄</span>
+          <div>
+            <strong>14 DAYS RETURN</strong>
+            <p>Easy exchanges & returns</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">⚡</span>
+          <div>
+            <strong>FAST SHIPPING</strong>
+            <p>Free delivery on orders above ₹500</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Myntra Experience Clone. Built with semantic HTML5, modern CSS3 & vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

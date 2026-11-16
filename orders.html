@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders — Myntra Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Promo Strip -->
+  <div class="top-promo-strip">
+    <div class="container promo-content">
+      <span>🎉 <strong>MYNTRA ORDERS:</strong> Easy 14-day demo returns & instant updates</span>
+      <span class="promo-badge">Live Order Tracking</span>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Myntra Home">
+        <svg class="myntra-symbol" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 32V8L20 22L30 8V32" stroke="url(#m-gradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 32V18L35 32" stroke="url(#m-gradient2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="m-gradient" x1="10" y1="8" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF3F6C"/>
+              <stop offset="1" stop-color="#FF905A"/>
+            </linearGradient>
+            <linearGradient id="m-gradient2" x1="25" y1="18" x2="35" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF905A"/>
+              <stop offset="1" stop-color="#F13AB1"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">myntra</span>
+      </a>
+
+      <!-- Navigation Categories -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Shop Catalogue</a>
+        <a href="index.html#cart-panel" class="nav-link">Shopping Bag</a>
+        <span class="nav-link active">My Orders</span>
+      </nav>
+
+      <!-- Action Items -->
+      <div class="header-actions">
+        <a href="index.html" class="action-item" title="Browse Catalogue">
+          <span class="action-icon">🛍️</span>
+          <span class="action-label">Shop</span>
+        </a>
+        <a href="orders.html" class="action-item active-action" title="My Orders">
+          <span class="action-icon">📦</span>
+          <span class="action-label">Orders</span>
+          <span class="cart-badge" id="ordersCountBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Orders Container -->
+  <main class="container orders-page-layout">
+    <div class="orders-header-bar">
+      <div>
+        <h1 class="orders-main-title">My Orders</h1>
+        <p class="orders-sub-title">View all previous demo orders, track deliveries, or cancel items</p>
+      </div>
+      <div class="orders-filter-chips">
+        <button type="button" class="order-chip active" data-filter="all">All Orders</button>
+        <button type="button" class="order-chip" data-filter="Confirmed">Confirmed</button>
+        <button type="button" class="order-chip" data-filter="Cancelled">Cancelled</button>
+      </div>
+    </div>
+
+    <!-- Empty Orders View -->
+    <div class="empty-orders-view" id="emptyOrdersView" hidden>
+      <div class="empty-icon-wrap">
+        <span class="empty-art">📦</span>
+      </div>
+      <h2>You have no orders yet</h2>
+      <p>Browse our curated Myntra collection, add your favorite fashion & tech essentials to your bag, and place a demo order!</p>
+      <a href="index.html" class="btn-shop-now">START SHOPPING ➔</a>
+    </div>
+
+    <!-- Orders Feed -->
+    <div class="orders-feed" id="ordersFeed" aria-live="polite">
+      <!-- Injected via orders.js -->
+    </div>
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast-shelf" id="toastShelf" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="guarantee-grid">
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🛡️</span>
+          <div>
+            <strong>100% ORIGINAL</strong>
+            <p>Guarantee on all products</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🔄</span>
+          <div>
+            <strong>14 DAYS RETURN</strong>
+            <p>Easy exchanges & returns</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">⚡</span>
+          <div>
+            <strong>FAST SHIPPING</strong>
+            <p>Free delivery on orders above ₹500</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Myntra Experience Clone. Built with semantic HTML5, modern CSS3 & Node.js backend.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="orders.js"></script>
+</body>
+</html>

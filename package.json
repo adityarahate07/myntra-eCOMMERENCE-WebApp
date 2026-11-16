@@ -1,0 +1,19 @@
+{
+  "name": "myntra-ecommerce-clone",
+  "version": "1.0.0",
+  "description": "Professional Myntra E-Commerce clone with vanilla JS frontend and Node.js REST API backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "myntra",
+    "vanilla-js",
+    "nodejs",
+    "html5",
+    "css3"
+  ],
+  "author": "Aditya Rahate",
+  "license": "ISC"
+}
